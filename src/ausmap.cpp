@@ -6,23 +6,11 @@
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include "ausmap.hpp"
 
 using namespace std;
 
 #define MAXC 220
-
-class Graph {
-private:
-	vector<vector<int> > adjList;
-	void addNode(char* str);
-	vector<pair<double, double> > coords;
-	vector<string> names;
-public:
-	Graph();
-	void build(ifstream &file);
-	pair<double, double> getCoords(int ind) const;
-	string getName(int ind) const;
-};
 
 Graph::Graph (){
 	adjList.assign(MAXC, vector<int> ());
@@ -66,14 +54,4 @@ pair<double, double> Graph::getCoords(int ind) const{
 
 string Graph::getName(int ind) const {
 	return names[ind];
-}
-
-int main(){
-	Graph *g = new Graph();
-	ifstream file("australia.csv");
-	g->build(file);
-	file.close();
-	cout << g->getName(19) << " ";
-	cout << g->getCoords(119).first << endl;
-	return 0;
 }
