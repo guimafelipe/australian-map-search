@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include <cmath>
 #include "ausmap.hpp"
 
 using namespace std;
@@ -48,6 +49,11 @@ void Graph::addNode(char *str){
 	coords[id] = make_pair(x, y);
 }
 
+double Graph::dist(int i, int j){
+	pair<double, double> c1 = getCoords(i), c2 = getCoords(j);
+	return hypot(c1.first - c2.first, c1.second - c2.second);
+}
+
 pair<double, double> Graph::getCoords(int ind) const{
 	return coords[ind];
 }
@@ -55,3 +61,7 @@ pair<double, double> Graph::getCoords(int ind) const{
 string Graph::getName(int ind) const {
 	return names[ind];
 }
+
+int Graph::size() const {return adjList.size();}
+
+vector<int> Graph::getAdjList(int ind) const{ return adjList[ind]; }

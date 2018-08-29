@@ -17,7 +17,10 @@ public:
 	Graph();
 	void build(ifstream &file);
 	pair<double, double> getCoords(int ind) const;
+	vector<int> getAdjList(int ind) const;
 	string getName(int ind) const;
+	double dist(int i, int j);
+	int size() const;
 };
 
 #endif
