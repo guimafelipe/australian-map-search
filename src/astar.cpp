@@ -7,8 +7,18 @@
 #include "astar.hpp"
 using namespace std;
 
+void printPath(int end, vector<int> & parent){
+	int curr = end;
+	while(curr != -1){
+		cout << curr << " ";
+		curr = parent[curr];
+	}
+	cout << endl;
+}
+
 #define EPS 0.0001
 double Astar::run(){
+	vector<int> parent (g->size() +1, -1);
 	distance[start] = 0.0;
 	priority_queue<pair<double, int>, vector<pair<double, int> >, greater<pair<double, int> > > pq;
 	pq.push(make_pair(0.0 ,start));
@@ -21,6 +31,7 @@ double Astar::run(){
 		if(visited[u]) continue;
 		visited[u] = true;
 		if(u == destiny){
+			// printPath(destiny, parent);
 			return distance[u];
 		}
 		vector<int> &currAdj = g->getAdjList(u);
@@ -28,9 +39,10 @@ double Astar::run(){
 		for(int i = 0; i < n; i++){
 			int v = currAdj[i];
 			int dist = g->dist(u, v);
-			if(distance[u] + dist < distance[v] + EPS){
+			if(distance[u] + dist < distance[v]){
 				distance[v] = distance[u] + dist;
 				pq.push(make_pair(distance[v] + heuristica[v], v));
+				parent[v] = u;
 			}
 		}
 	}
