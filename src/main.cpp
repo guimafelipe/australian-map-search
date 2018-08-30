@@ -2,6 +2,7 @@
 #include <iostream>
 #include "ausmap.hpp"
 #include "greedy.hpp"
+#include "astar.hpp"
 using namespace std;
 
 int main(){
@@ -12,6 +13,8 @@ int main(){
 
 	Greedy greddy(g, 5, 219); 
 	cout << greddy.run() << endl;
+	Astar astar(g, 5, 219);
+	cout << astar.run() << endl;
 
 	return 0;
 }

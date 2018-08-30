@@ -64,4 +64,4 @@ string Graph::getName(int ind) const {
 
 int Graph::size() const {return adjList.size();}
 
-vector<int> Graph::getAdjList(int ind) const{ return adjList[ind]; }
+vector<int>& Graph::getAdjList(int ind) { return adjList[ind]; }

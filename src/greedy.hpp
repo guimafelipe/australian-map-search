@@ -1,3 +1,5 @@
+#ifndef GREEDY_H
+#define GREEDY_H
 #include "ausmap.hpp"
 #include <vector>
 #include <algorithm>
@@ -9,6 +11,8 @@ class Greedy {
 private:
 	vector<double> heuristica;
 	vector<bool> visited;
+	vector<double> distance;
+	// vector<vector<int> > adjList;
 	Graph *g;
     int start, destiny;
 	double search(int curr);
@@ -17,3 +21,4 @@ public:
 	void buildHeuristics();
 	double run();
 };
+#endif
