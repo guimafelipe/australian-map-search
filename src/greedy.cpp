@@ -10,6 +10,7 @@ using namespace std;
 
 double Greedy::run(){
 	distance[start] = 0.0;
+	vector<bool> added (distance.size(), false);
 	priority_queue<pair<double, int>, vector<pair<double, int> >, greater<pair<double, int> > > pq;
 	pq.push(make_pair(heuristica[start], start));
 	while(!pq.empty()){
@@ -26,10 +27,12 @@ double Greedy::run(){
 		int n = currAdj.size();
 		for(int i = 0; i < n; i++){
 			int v = currAdj[i];
-			if(visited[v]) continue;
 			double dist = g->dist(u, v);
-			distance[v] = distance[u] + dist;
-			pq.push(make_pair(heuristica[v], v));
+			distance[v] = min(distance[v], distance[u] + dist);
+			if(!added[v]){
+				pq.push(make_pair(heuristica[v], v));
+				added[v] = true;
+			}
 		}
 	}
 	return -1;

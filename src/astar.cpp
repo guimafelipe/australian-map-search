@@ -31,7 +31,6 @@ double Astar::run(){
 		if(visited[u]) continue;
 		visited[u] = true;
 		if(u == destiny){
-			// printPath(destiny, parent);
 			return distance[u];
 		}
 		vector<int> &currAdj = g->getAdjList(u);
