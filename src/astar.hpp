@@ -6,7 +6,7 @@
 class Astar {
 private:
 	vector<double> heuristica;
-	// vector<vector<int> > adjList;
+	vector<bool> visited;
 	vector<double> distance;
 	Graph *g;
 	int start, destiny;

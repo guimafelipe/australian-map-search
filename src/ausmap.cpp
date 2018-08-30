@@ -38,12 +38,16 @@ void Graph::addNode(char *str){
 	y = atof(strtok(NULL, ","));
 	if(id%2 && id > 2){ // id impar e maior que dois (tipo... todos os impares que não seja 1)
 		adjList[id].push_back(id-2);
+		if(id-2 > 0) adjList[id-2].push_back(id);
 		adjList[id].push_back(id+1);
+		if(id+1 < 220) adjList[id+1].push_back(id);
 	} else if((!id%2) && x > 1){ // Id par e maior que 1 (tipo... todos os pares)
 		adjList[id].push_back(id+2);
+		if(id+2 < 220) adjList[id+2].push_back(id);
 		adjList[id].push_back(id-1);
 	} else { // id == 1
 		adjList[id].push_back(id+1);
+		if(id+1 < 220) adjList[id+1].push_back(id);
 	}
 	names[id] = name;
 	coords[id] = make_pair(x, y);

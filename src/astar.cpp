@@ -19,6 +19,7 @@ void Astar::buildHeuristics(){
 	int n = g->size();
 	heuristica.resize(n);
 	distance.assign(n, INF);
+	visited.assign(n, false);
 	for(int i = 1; i < n; i++){
 		heuristica[i] = g->dist(destiny, i); 
 	}
@@ -34,7 +35,9 @@ double Astar::run(){
 		pq.pop();
 		double cost = front.first;
 		int u = front.second;
-		if(cost > distance[u] + heuristica[u] + EPS) continue;
+		if(cost > distance[u] + heuristica[u]) continue;
+		if(visited[u]) continue;
+		visited[u] = true;
 		if(u == destiny){
 			return distance[u];
 		}
