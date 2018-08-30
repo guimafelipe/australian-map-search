@@ -17,13 +17,13 @@ int main(){
 	clock_t begin = clock();
 	double ans = greddy.run(); 
 	clock_t end = clock();
-	cout << "Greedy answer: " << ans << ", elapsed time: " << double(end - begin)/CLOCKS_PER_SEC << endl;
+	cout << "Greedy answer: " << (double)ans << ", elapsed time: " << double(end - begin)/CLOCKS_PER_SEC << endl;
 
 	Astar astar(g, 5, 219);
 	begin = clock();
 	ans = astar.run();
 	end = clock();
-	cout << "A* answer: " << ans << ", elapsed time: " << double(end - begin)/CLOCKS_PER_SEC << endl;
+	cout << "A* answer: " << (double)ans << ", elapsed time: " << double(end - begin)/CLOCKS_PER_SEC << endl;
 
 	return 0;
 }

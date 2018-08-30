@@ -38,7 +38,7 @@ double Astar::run(){
 		int n = currAdj.size();
 		for(int i = 0; i < n; i++){
 			int v = currAdj[i];
-			int dist = g->dist(u, v);
+			double dist = g->dist(u, v);
 			if(distance[u] + dist < distance[v]){
 				distance[v] = distance[u] + dist;
 				pq.push(make_pair(distance[v] + heuristica[v], v));

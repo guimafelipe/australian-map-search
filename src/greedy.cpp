@@ -27,9 +27,10 @@ double Greedy::run(){
 		for(int i = 0; i < n; i++){
 			int v = currAdj[i];
 			if(visited[v]) continue;
-			int dist = g->dist(u, v);
+			double dist = g->dist(u, v);
 			distance[v] = distance[u] + dist;
 			pq.push(make_pair(heuristica[v], v));
 		}
 	}
+	return -1;
 }
