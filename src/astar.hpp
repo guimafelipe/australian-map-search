@@ -2,17 +2,11 @@
 #define ASTAR_H
 #include <vector>
 #include "ausmap.hpp"
+#include "graphsearch.hpp"
 
-class Astar {
-private:
-	vector<double> heuristica;
-	vector<bool> visited;
-	vector<double> distance;
-	Graph *g;
-	int start, destiny;
-	void buildHeuristics();
+class Astar : public GraphSearch{
 public:
-	Astar(Graph *g, int start, int destiny);
+	Astar(Graph *g, int start, int destiny) : GraphSearch(g, start, destiny) {};
 	double run();
 };
 

@@ -3,27 +3,9 @@
 #include <algorithm>
 #include <iostream>
 #include "ausmap.hpp"
+#include "graphsearch.hpp"
 #include "astar.hpp"
 using namespace std;
-
-
-Astar::Astar(Graph *g, int start, int destiny){ 
-	this->g = g;
-	this->start = start;
-	this->destiny = destiny;
-	buildHeuristics();
-}
-
-#define INF 1e9
-void Astar::buildHeuristics(){
-	int n = g->size();
-	heuristica.resize(n);
-	distance.assign(n, INF);
-	visited.assign(n, false);
-	for(int i = 1; i < n; i++){
-		heuristica[i] = g->dist(destiny, i); 
-	}
-}
 
 #define EPS 0.0001
 double Astar::run(){

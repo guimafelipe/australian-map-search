@@ -3,6 +3,7 @@
 #include "ausmap.hpp"
 #include "greedy.hpp"
 #include "astar.hpp"
+#include "graphsearch.hpp"
 #include <ctime>
 using namespace std;
 

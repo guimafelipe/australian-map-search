@@ -1,28 +1,12 @@
 #include "ausmap.hpp"
 #include "greedy.hpp"
+#include "graphsearch.hpp"
 #include <vector>
 #include <algorithm>
 #include <cmath>
 #include <queue>
 #include <iostream>
 using namespace std;
-
-Greedy::Greedy(Graph* g, int start, int destiny){
-	this->destiny = destiny;
-	this->start = start;
-	this->g = g;
-	buildHeuristics();
-}
-
-void Greedy::buildHeuristics(){
-	int n = g->size();
-	heuristica.resize(n);
-	visited.assign(n, false);
-	distance.resize(n);
-	for(int i = 1; i < n; i++){
-		heuristica[i] = g->dist(destiny, i); 
-	}
-}
 
 double Greedy::run(){
 	distance[start] = 0.0;
