@@ -7,18 +7,6 @@
 #include <iostream>
 using namespace std;
 
-// class Greedy {
-// private:
-// 	vector<double> heuristica;
-// 	vector<bool> visited;
-// 	Graph *g;
-// 	double search(int curr);
-// public:
-// 	Greedy(Graph* g, int destiny, int start);
-// 	void buildHeuristics();
-// 	double run();
-// }
-
 Greedy::Greedy(Graph* g, int start, int destiny){
 	this->destiny = destiny;
 	this->start = start;
@@ -61,26 +49,3 @@ double Greedy::run(){
 		}
 	}
 }
-
-// double Greedy::search(int curr){
-// 	// cout << curr << endl;
-// 	if(curr == destiny) return 0.0;
-// 	vector<int> currAdj = g->getAdjList(curr);
-// 	int adjsz = currAdj.size();
-// 	double ans = -1.0;
-// 	for(int i = 0; i < adjsz; i++){
-// 		int candidate = currAdj[i];
-// 		if(!visited[candidate]){
-// 			pq.push(make_pair(heuristica[candidate], candidate));
-// 		}
-// 	}
-// 	while(!pq.empty()){
-// 		int candidate = pq.top().second;
-// 		double result = search(candidate);
-// 		if(result > -0.1){
-// 			ans = g->dist(candidate, curr) + result;
-// 			break;
-// 		}
-// 	}
-// 	return ans;
-// }

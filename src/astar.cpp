@@ -14,10 +14,11 @@ Astar::Astar(Graph *g, int start, int destiny){
 	buildHeuristics();
 }
 
+#define INF 1e9
 void Astar::buildHeuristics(){
 	int n = g->size();
 	heuristica.resize(n);
-	distance.assign(n, 10000000.0);
+	distance.assign(n, INF);
 	for(int i = 1; i < n; i++){
 		heuristica[i] = g->dist(destiny, i); 
 	}
